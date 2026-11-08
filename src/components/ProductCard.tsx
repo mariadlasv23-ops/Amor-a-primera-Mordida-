@@ -21,7 +21,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   // Direct WhatsApp contact message
   const handleQuickWhatsApp = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const phone = '51983344508';
+    const phone = '51943605482';
     const message = encodeURIComponent(
       `Hola D'yaliz, quisiera consultar sobre *${product.name}* (${product.category}) de su catálogo de postres.`
     );
@@ -89,7 +89,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <button
             type="button"
             onClick={handleQuickWhatsApp}
-            title="Consultar por WhatsApp (+51 983 344 508)"
+            title="Consultar por WhatsApp (+51 943 605 482)"
             className="flex-1 py-2 px-3 rounded-xl bg-[#8FBC93]/15 hover:bg-[#8FBC93]/25 text-[#2D2322] text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#8FBC93]" />

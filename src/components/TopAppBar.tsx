@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Smartphone, Monitor, Database, MessageCircle, LogOut } from 'lucide-react';
+import { Smartphone, Monitor, MessageCircle, LogOut, Download } from 'lucide-react';
 import { ActiveTab, UserProfile } from '../types';
 
 interface TopAppBarProps {
@@ -11,6 +11,7 @@ interface TopAppBarProps {
   quoteItemsCount: number;
   currentUser?: UserProfile | null;
   onLogout?: () => void;
+  onOpenDownloadModal?: () => void;
 }
 
 export const TopAppBar: React.FC<TopAppBarProps> = ({
@@ -22,6 +23,7 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
   quoteItemsCount,
   currentUser,
   onLogout,
+  onOpenDownloadModal,
 }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
@@ -51,12 +53,6 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
               </span>
             </div>
           </button>
-
-          {/* Offline Database Badge */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 border border-[#8FBC93]/30 text-[11px] font-medium text-[#2D2322]">
-            <Database className="w-3 h-3 text-[#8FBC93]" />
-            <span>Room DB Offline</span>
-          </div>
         </div>
 
         {/* Zone 2: Navigation Links */}
@@ -138,7 +134,7 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
                     </p>
                     <p className="text-[11px] text-[#5C4F4E]">{currentUser.phone}</p>
                     <p className="text-[10px] text-[#8FBC93] font-medium mt-0.5">
-                      {currentUser.age} años · Sesión Offline Activa
+                      {currentUser.age} años · Sesión Activa
                     </p>
                   </div>
 
@@ -160,6 +156,19 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
             </div>
           )}
 
+
+          {/* Download App Modal Trigger */}
+          {onOpenDownloadModal && (
+            <button
+              type="button"
+              onClick={onOpenDownloadModal}
+              title="Descargar o instalar app en tu celular"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#E9ACBB]/20 hover:bg-[#E9ACBB]/30 border border-[#E9ACBB]/40 text-xs text-[#2D2322] font-semibold transition-colors cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-[#E9ACBB]" />
+              <span className="hidden sm:inline">Descargar App</span>
+            </button>
+          )}
 
           {/* Android Pixel 8 Device Frame Toggle */}
           <button
@@ -186,7 +195,7 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
             type="button"
             onClick={() => {
               window.open(
-                'https://wa.me/51983344508?text=Hola%20D\'yaliz,%20quisiera%20consultar%20sobre%20su%20catálogo%20de%20postres',
+                'https://wa.me/51943605482?text=Hola%20D\'yaliz,%20quisiera%20consultar%20sobre%20su%20catálogo%20de%20postres',
                 '_blank'
               );
             }}

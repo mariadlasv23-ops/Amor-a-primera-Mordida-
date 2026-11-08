@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Cake, Sparkles, WifiOff, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Cake, Sparkles, CheckCircle2 } from 'lucide-react';
 import { UserProfile } from '../types';
 
 interface WelcomeScreenProps {
@@ -35,14 +35,13 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           <span>Amor a primera mordida D'Yaliz</span>
         </div>
 
-        {/* Personalized Welcome Heading strictly following user instructions */}
+        {/* Personalized Welcome Heading */}
         <h1 className="font-serif-brand text-2xl sm:text-3xl font-bold text-[#2D2322] leading-tight">
           ¡Bienvenido, {user.firstName}!
         </h1>
 
-        {/* Exact message mandated by user */}
         <p className="text-sm sm:text-base text-[#5C4F4E] mt-4 leading-relaxed max-w-md mx-auto">
-          Esta app está diseñada para que puedas ver nuestro delicioso menú de postres, cremoladas y tortas de forma rápida y sin necesidad de internet.
+          Esta app está diseñada para que puedas ver nuestro delicioso menú de postres, alfajores y tortas de forma rápida y sencilla.
         </p>
 
         {/* User Summary Pill */}
@@ -66,12 +65,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
         {/* Features highlight */}
         <div className="grid grid-cols-2 gap-3 mb-8 text-left text-xs">
           <div className="p-3 rounded-2xl bg-[#8FBC93]/15 border border-[#8FBC93]/30 flex items-center gap-2.5">
-            <WifiOff className="w-4 h-4 text-[#8FBC93] shrink-0" />
-            <span className="text-[#2D2322] font-medium">100% Offline (Room DB)</span>
+            <Sparkles className="w-4 h-4 text-[#8FBC93] shrink-0" />
+            <span className="text-[#2D2322] font-medium">Catálogo Exclusivo</span>
           </div>
           <div className="p-3 rounded-2xl bg-[#FCEBBF]/40 border border-[#FCEBBF] flex items-center gap-2.5">
             <Cake className="w-4 h-4 text-[#E9ACBB] shrink-0" />
-            <span className="text-[#2D2322] font-medium">Tortas, Cremoladas y Pies</span>
+            <span className="text-[#2D2322] font-medium">Tortas, Alfajores y Bocaditos</span>
           </div>
         </div>
 

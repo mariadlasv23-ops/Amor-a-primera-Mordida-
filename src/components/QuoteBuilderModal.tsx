@@ -27,7 +27,7 @@ export const QuoteBuilderModal: React.FC<QuoteBuilderModalProps> = ({
   if (!isOpen) return null;
 
   const handleSendToWhatsApp = () => {
-    const phone = '51983344508';
+    const phone = '51943605482';
 
     if (items.length === 0) return;
 
@@ -70,7 +70,7 @@ export const QuoteBuilderModal: React.FC<QuoteBuilderModalProps> = ({
                 Lista de Cotización para Eventos
               </h3>
               <p className="text-xs text-[#5C4F4E]">
-                Arma tu selección dulce y envíala directamente a WhatsApp (+51 983 344 508)
+                Arma tu selección dulce y envíala directamente a WhatsApp (+51 943 605 482)
               </p>
             </div>
           </div>
@@ -248,7 +248,7 @@ export const QuoteBuilderModal: React.FC<QuoteBuilderModalProps> = ({
               className="w-full py-3.5 px-4 rounded-2xl bg-[#8FBC93] hover:bg-[#7ea882] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>Enviar Lista a WhatsApp (+51 983 344 508)</span>
+              <span>Enviar Lista a WhatsApp (+51 943 605 482)</span>
               <Send className="w-4 h-4 ml-1" />
             </button>
           </div>

@@ -11,8 +11,8 @@ export const ContactScreen: React.FC<ContactScreenProps> = ({ currentUser }) => 
   const [eventType, setEventType] = useState('Quinceañera');
   const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const phoneNumber = '+51 983 344 508';
-  const cleanPhone = '51983344508';
+  const phoneNumber = '+51 943 605 482';
+  const cleanPhone = '51943605482';
 
   const handleOpenWhatsApp = () => {
     const greeting = currentUser ? `Hola D'yaliz, soy *${currentUser.firstName} ${currentUser.lastName}*` : "Hola D'yaliz";
@@ -101,27 +101,28 @@ export const ContactScreen: React.FC<ContactScreenProps> = ({ currentUser }) => 
           </button>
         </div>
 
-        {/* Web Page Field (Currently Blank as requested) */}
+        {/* Facebook Page Field (Muy pronto) */}
         <div className="bg-white rounded-3xl p-6 border border-[#EEEFE8] shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-[#C9B297]/20 flex items-center justify-center shrink-0">
-            <Globe className="w-6 h-6 text-[#C9B297]" />
+          <div className="w-12 h-12 rounded-2xl bg-[#1877F2]/15 flex items-center justify-center shrink-0">
+            <svg className="w-6 h-6 text-[#1877F2] fill-current" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
           </div>
 
           <div className="mt-4">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#5C4F4E]">
-              Página Web
+              Página de Facebook
             </span>
-            {/* Blank web page field as strictly requested */}
-            <div className="mt-2 p-3.5 rounded-2xl bg-[#EEEFE8]/70 border border-dashed border-[#C9B297]/40 flex items-center justify-between">
-              <span className="text-sm font-medium text-[#5C4F4E]/60 italic">
-                (Actualmente en blanco / Próximamente)
+            <div className="mt-2 p-3.5 rounded-2xl bg-[#EEEFE8]/70 border border-dashed border-[#1877F2]/40 flex items-center justify-between">
+              <span className="text-sm font-semibold text-[#2D2322]">
+                Página de Facebook
               </span>
-              <span className="text-[11px] px-2 py-0.5 rounded-md bg-white text-[#5C4F4E]">
-                En desarrollo
+              <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-[#E9ACBB]/20 text-[#2D2322] border border-[#E9ACBB]/40">
+                Muy pronto
               </span>
             </div>
             <p className="text-xs text-[#5C4F4E] mt-3">
-              Nuestro catálogo digital funciona 100% offline mientras preparamos la dirección web oficial.
+              Estamos preparando nuestra página oficial de Facebook con promociones, fotos de eventos y novedades dulces.
             </p>
           </div>
         </div>
@@ -185,7 +186,7 @@ export const ContactScreen: React.FC<ContactScreenProps> = ({ currentUser }) => 
             className="w-full sm:w-auto py-3 px-6 rounded-2xl bg-[#8FBC93] hover:bg-[#7ea882] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
           >
             <Send className="w-4 h-4" />
-            <span>Enviar Consulta a WhatsApp (+51 983 344 508)</span>
+            <span>Enviar Consulta a WhatsApp (+51 943 605 482)</span>
           </button>
         </div>
       </div>

@@ -19,6 +19,8 @@ import { QuoteBuilderModal } from './components/QuoteBuilderModal';
 import { AndroidDeviceFrame } from './components/AndroidDeviceFrame';
 import { LoginScreen } from './components/LoginScreen';
 import { WelcomeScreen } from './components/WelcomeScreen';
+import { usePWAInstall } from './hooks/usePWAInstall';
+import { AppDownloadModal } from './components/AppDownloadModal';
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -31,6 +33,10 @@ export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [isAndroidFrameView, setIsAndroidFrameView] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // PWA Install / App Download state
+  const { isInstallable, isInstalled, isIOS, isDismissed, install, dismiss } = usePWAInstall();
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   // User Profile & Screen lifecycle: 'loading' | 'login' | 'welcome' | 'app'
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
@@ -73,9 +79,27 @@ export default function App() {
     setScreenState('welcome');
   };
 
+  // Auto-show download modal immediately at app startup if not yet installed or dismissed
+  useEffect(() => {
+    if (!isLoading && !isInstalled && !isDismissed) {
+      const timer = setTimeout(() => {
+        setIsDownloadModalOpen(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, isInstalled, isDismissed]);
+
+  const handleCloseDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+    dismiss();
+  };
+
   // Continue to catalog from Welcome Screen
   const handleContinueToCatalog = () => {
     setScreenState('app');
+    if (!isInstalled && !isDismissed) {
+      setIsDownloadModalOpen(true);
+    }
   };
 
   // Handle Logout / Switch user
@@ -184,6 +208,14 @@ export default function App() {
     return (
       <AndroidDeviceFrame isAndroidView={isAndroidFrameView}>
         <LoginScreen onLoginSuccess={handleLoginSuccess} />
+        <AppDownloadModal
+          isOpen={isDownloadModalOpen}
+          onClose={handleCloseDownloadModal}
+          isInstallable={isInstallable}
+          isInstalled={isInstalled}
+          isIOS={isIOS}
+          onInstall={install}
+        />
       </AndroidDeviceFrame>
     );
   }
@@ -195,6 +227,14 @@ export default function App() {
         <WelcomeScreen
           user={currentUser}
           onContinueToCatalog={handleContinueToCatalog}
+        />
+        <AppDownloadModal
+          isOpen={isDownloadModalOpen}
+          onClose={handleCloseDownloadModal}
+          isInstallable={isInstallable}
+          isInstalled={isInstalled}
+          isIOS={isIOS}
+          onInstall={install}
         />
       </AndroidDeviceFrame>
     );
@@ -220,23 +260,8 @@ export default function App() {
           quoteItemsCount={quoteItems.reduce((acc, i) => acc + i.quantity, 0)}
           currentUser={currentUser}
           onLogout={handleLogout}
+          onOpenDownloadModal={() => setIsDownloadModalOpen(true)}
         />
-
-        {/* Offline Persistent Banner */}
-        <div className="bg-[#8FBC93]/20 border-b border-[#8FBC93]/30 px-4 py-2">
-          <div className="max-w-6xl mx-auto flex items-center justify-between text-xs text-[#2D2322]">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#8FBC93] animate-pulse" />
-              <span className="font-semibold">Catálogo 100% Offline</span>
-              <span className="hidden sm:inline text-[#5C4F4E]">
-                · Base de datos local sincronizada (funciona sin internet)
-              </span>
-            </div>
-            <span className="text-[11px] font-medium text-[#2D2322]/80">
-              Disponibilidad inmediata
-            </span>
-          </div>
-        </div>
 
         {/* Main Content Area */}
         <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 pb-24">
@@ -265,7 +290,7 @@ export default function App() {
                       type="button"
                       onClick={() => {
                         window.open(
-                          'https://wa.me/51983344508?text=Hola%20D\'yaliz,%20quisiera%20consultar%20sobre%20su%20catálogo%20de%20postres',
+                          'https://wa.me/51943605482?text=Hola%20D\'yaliz,%20quisiera%20consultar%20sobre%20su%20catálogo%20de%20postres',
                           '_blank'
                         );
                       }}
@@ -504,6 +529,16 @@ export default function App() {
           onUpdateQuantity={handleUpdateQuoteQuantity}
           onRemoveItem={handleRemoveFromQuote}
           onClearQuote={handleClearQuote}
+        />
+
+        {/* Startup / On-demand App Download & Install Modal */}
+        <AppDownloadModal
+          isOpen={isDownloadModalOpen}
+          onClose={handleCloseDownloadModal}
+          isInstallable={isInstallable}
+          isInstalled={isInstalled}
+          isIOS={isIOS}
+          onInstall={install}
         />
       </div>
     </AndroidDeviceFrame>

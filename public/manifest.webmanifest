@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "Pastelería y Repostería: Amor a primera mordida D'Yaliz",
+  "short_name": "D'Yaliz",
+  "description": "Catálogo oficial de postres, alfajores, tortas y bocaditos dulces para eventos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEEFE8",
+  "theme_color": "#E9ACBB",
+  "icons": [
+    {
+      "src": "/assets/aistudio/image_5d0b2247.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/image_5d0b2247.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/image_5d0b2247.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

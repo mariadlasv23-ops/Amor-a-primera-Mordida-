@@ -1,6 +1,6 @@
 {
   "name": "Pastelería y Repostería: Amor a primera mordida D'yaliz",
-  "description": "Catálogo exclusivo de postres, tortas y bocaditos dulces para eventos. 100% offline con guardado local y contacto directo a WhatsApp.",
+  "description": "Catálogo exclusivo de postres, tortas y bocaditos dulces para eventos con contacto directo a WhatsApp.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

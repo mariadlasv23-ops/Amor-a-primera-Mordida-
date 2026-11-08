@@ -70,13 +70,13 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
           </div>
 
           <span className="text-[11px] font-bold uppercase tracking-wider text-[#E9ACBB] block mb-1">
-            Registro Rápido & Offline
+            Registro Rápido
           </span>
           <h1 className="font-serif-brand text-2xl sm:text-3xl font-bold text-[#2D2322] leading-tight">
             Iniciar Sesión
           </h1>
           <p className="text-xs text-[#5C4F4E] mt-1.5 max-w-xs mx-auto">
-            Ingresa tus datos para acceder a nuestro catálogo completo de postres y tortas sin conexión.
+            Ingresa tus datos para acceder a nuestro catálogo completo de postres y tortas.
           </p>
         </div>
 
@@ -136,7 +136,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="+51 983 344 508 o 987654321"
+                placeholder="+51 943 605 482 o 987654321"
                 className={`w-full pl-10 pr-3.5 py-3 rounded-2xl bg-[#EEEFE8]/60 border ${
                   errors.phone ? 'border-red-400 bg-red-50/20' : 'border-[#EEEFE8]'
                 } focus:border-[#E9ACBB] focus:bg-white text-xs sm:text-sm text-[#2D2322] placeholder:text-[#5C4F4E]/40 focus:outline-hidden transition-all`}
@@ -184,7 +184,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
         {/* Security & Offline Local Storage Notice */}
         <div className="mt-6 pt-4 border-t border-[#EEEFE8] flex items-center justify-center gap-2 text-[11px] text-[#5C4F4E]">
           <ShieldCheck className="w-4 h-4 text-[#8FBC93]" />
-          <span>Guardado local tipo Room / DataStore (100% privado)</span>
+          <span>Guardado de sesión seguro y privado</span>
         </div>
       </div>
     </div>

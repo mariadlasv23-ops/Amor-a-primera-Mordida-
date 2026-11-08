@@ -27,7 +27,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   if (!isOpen || !product) return null;
 
   const handleWhatsAppInquiry = () => {
-    const phone = '51983344508';
+    const phone = '51943605482';
     const message = encodeURIComponent(
       `¡Hola D'yaliz! Me encantó *${product.name}* (${product.category}) de su catálogo.\nQuisiera consultar disponibilidad para mi celebración o evento.`
     );
