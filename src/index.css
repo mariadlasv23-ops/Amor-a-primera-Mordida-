@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-alabaster: #EEEFE8;
+    --color-columbia-blue: #C9B297;
+    --color-columbia-sky: #B8D2E8;
+    --color-cherry-blossom: #E9ACBB;
+    --color-cambridge-blue: #8FBC93;
+    --color-peach: #FCEBBF;
+    --color-espresso: #2D2322;
+    --color-espresso-muted: #5C4F4E;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: var(--color-alabaster);
+    color: var(--color-espresso);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-serif-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-brand {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EEEFE8;
+}
+::-webkit-scrollbar-thumb {
+  background: #E9ACBB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d88c9d;
+}
+
+/* Android touch feedback simulation */
+.android-ripple {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s;
+}
+.android-ripple:active {
+  transform: scale(0.97);
+}
