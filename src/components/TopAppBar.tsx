@@ -166,7 +166,7 @@ export const TopAppBar: React.FC<TopAppBarProps> = ({
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#E9ACBB]/20 hover:bg-[#E9ACBB]/30 border border-[#E9ACBB]/40 text-xs text-[#2D2322] font-semibold transition-colors cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-[#E9ACBB]" />
-              <span className="hidden sm:inline">Descargar App</span>
+              <span className="hidden sm:inline">Instalar app</span>
             </button>
           )}
 

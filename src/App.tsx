@@ -79,16 +79,6 @@ export default function App() {
     setScreenState('welcome');
   };
 
-  // Auto-show download modal immediately at app startup if not yet installed or dismissed
-  useEffect(() => {
-    if (!isLoading && !isInstalled && !isDismissed) {
-      const timer = setTimeout(() => {
-        setIsDownloadModalOpen(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, isInstalled, isDismissed]);
-
   const handleCloseDownloadModal = () => {
     setIsDownloadModalOpen(false);
     dismiss();
@@ -97,9 +87,6 @@ export default function App() {
   // Continue to catalog from Welcome Screen
   const handleContinueToCatalog = () => {
     setScreenState('app');
-    if (!isInstalled && !isDismissed) {
-      setIsDownloadModalOpen(true);
-    }
   };
 
   // Handle Logout / Switch user
